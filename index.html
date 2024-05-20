@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="box">
+                <input class="city-input" type="text" placeholder="Enter City Name">
+    
+                <button onclick="showWeather();" class="weather-btn">
+                    <span class="btn-text">SEARCH</span>
+                </button>
+    
+            <div class="weather-container">
+                <img class="weather-img" src="assets/clear.png" alt="">
+                <span class="temp">21&deg;c</span>
+                <span class="city-name">New York</span>
+                <div class="info">
+                    <img class="humidity-img" src="assets/humidity.gif" alt="">
+                    <div>
+                        <p style="font-size: 20px;">70%</p>
+                        <p style="font-size: 14px;">Humidity</p>
+                    </div>
+                    <img class="wind-img" src="assets/wind.gif" alt="">
+                    <div>
+                        <p style="font-size: 20px;">20 km/h</p>
+                        <p style="font-size: 14px;">Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
