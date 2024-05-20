@@ -4,7 +4,6 @@
 }
 
 body {
-    background-image: ;
     font-family: 'Roboto';
 }
 
@@ -81,7 +80,7 @@ body {
 }
 
 .weather-img {
-    height: 130px;
+    height: 110px;
 }
 
 .temp {

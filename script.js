@@ -17,10 +17,42 @@ function showWeather() {
         const name = data.name;
         const humidity = data.main.humidity;
         const windspeed = data.wind.speed;
+        let desc='';
 
         weatherContainer.style.display="flex";
 
-        weatherContainer.innerHTML =`<img class="weather-img" src="assets/clear.png" alt="">
+        if(data.weather[0].id >=200 && data.weather[0].id<300)
+            {
+                desc='thunderstorm';
+            }
+        else if(data.weather[0].id >=300 && data.weather[0].id<400)
+            {
+                desc='drizzle';
+            }
+        else if(data.weather[0].id >=500 && data.weather[0].id<600)
+            {
+                desc='rain';
+            }
+        else if(data.weather[0].id >=600 && data.weather[0].id<700)
+            {
+                desc='snow';
+            }
+        else if(data.weather[0].id >=700 && data.weather[0].id<800)
+            {
+                desc='mist';
+            }
+        else if(data.weather[0].id === 800)
+            {
+                desc='clear';
+            }
+        else if(data.weather[0].id >800 && data.weather[0].id<900)
+            {   desc='clouds';
+
+            }
+
+        console.log(desc);
+
+        weatherContainer.innerHTML =`<img class="weather-img" src="assets/${desc}.png" alt="">
                 <span class="temp">${temp}&deg;c</span>
                 <span class="city-name">${name}</span>
                 <div class="info">
@@ -38,7 +70,7 @@ function showWeather() {
         
     })
     .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-        weatherContainer.textContent = 'Error fetching weather data. Please try again later.';
+        console.error(error);
+        alert("Invalid City Name");
     });
 }
