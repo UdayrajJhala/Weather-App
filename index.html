@@ -16,14 +16,42 @@
 
     <div class="main-container">
         <div class="box">
+            <div class="search-container">
                 <input class="city-input" type="text" placeholder="Enter City Name">
     
                 <button onclick="showWeather();" class="weather-btn">
-                    <span class="btn-text">SEARCH</span>
+                    <img class="search-img" src="assets/search.png" alt="">
                 </button>
+            </div>
+               
     
             <div class="weather-container">
-                
+                <img class="weather-img" src="assets/clear.png" alt="">
+                <span class="temp">30&deg;c</span>
+                <span style="font-size: 20px;" class="feels-like">Feels Like 31&deg;c</span>
+                <span class="city-name">Delhi</span>
+                <span style="font-size: 20px;" class="description">sunny</span>
+                <div class="min-max">
+                    <span style="padding-right: 20px;">Min: 20&deg;c</span>
+                    <span>Max: 40&deg;c</span>
+                </div>
+            
+                <div class="info">
+                    <img class="humidity-img" src="assets/humidity.gif" alt="">
+                    <div>
+                        <p style="font-size: 20px;">10%</p>
+                        <p style="font-size: 14px;">Humidity</p>
+                    </div>
+                    <img class="wind-img" src="assets/wind.gif" alt="">
+                    <div>
+                        <p style="font-size: 20px;">20 km/h</p>
+                        <p style="font-size: 14px;">Wind Speed</p>
+                    </div>
+                </div>
+                <div class="sunrise-sunset">
+                    <span style="padding-right: 20px;">Sunrise: <span style="font-weight: normal;">12:30 PM</span></span>
+                    <span>Sunset: <span style="font-weight: normal;">8:00 AM</span></span>
+                </div>
             </div>
         </div>
     </div>
