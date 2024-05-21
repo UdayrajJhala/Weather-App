@@ -1,3 +1,9 @@
+function convertToLocalTime(unixTimestamp, timezoneOffset) {
+    const date = new Date((unixTimestamp + timezoneOffset) * 1000);
+    const hours = date.getUTCHours().toString().padStart(2, '0');
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+}
 
 function showWeather() {
     const cityName = document.querySelector(".city-input").value;
@@ -5,6 +11,7 @@ function showWeather() {
     const apikey="7be4451c37b65c1b39616f9670e443dd";
     const apiurl=`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apikey}&units=metric`;
 
+    
     fetch(apiurl)
     .then(response => {
         if (!response.ok) {
@@ -24,15 +31,10 @@ function showWeather() {
         const max = data.main.temp_max;
         const sunrise = data.sys.sunrise;
         const sunset = data.sys.sunset;
+        const timezoneOffset = data.timezone; 
 
-        function convertUnixToIST(unixTimestamp) {
-            const date = new Date(unixTimestamp * 1000);
-            const options = { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' };
-            return date.toLocaleString('en-IN', options);
-        }
-
-        const sunriseIST = convertUnixToIST(sunrise);
-        const sunsetIST = convertUnixToIST(sunset);
+        const sunriseLocal = convertToLocalTime(sunrise, timezoneOffset);
+        const sunsetLocal = convertToLocalTime(sunset, timezoneOffset);
 
 
         weatherContainer.style.display="flex";
@@ -92,8 +94,8 @@ function showWeather() {
             </div>
         </div>
         <div class="sunrise-sunset">
-            <span style="padding-right: 20px;">Sunrise: <span style="font-weight: normal;">${sunriseIST}</span></span>
-            <span>Sunset: <span style="font-weight: normal;">${sunsetIST}</span></span>
+            <span style="padding-right: 20px;">Sunrise: <span style="font-weight: normal;">${sunriseLocal}</span></span>
+            <span>Sunset: <span style="font-weight: normal;">${sunsetLocal}</span></span>
         </div>`
         
     })
